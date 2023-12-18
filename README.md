@@ -42,22 +42,32 @@ Diff = A ⊕ B ⊕ Bin B = A'Bin + A'B + BBin
 
 # Program:
 ```
-module Halfsub(a,b,difference,borrow);
+HALFSUBTRACTOR:
+module halfsubtractor(a,b,diff,borrow);
 input a,b;
-output difference,borrow;
-assign difference=a^b;
-assign borrow=~a*b;
+output diff,borrow;
+assign diff=a^b;
+assign borrow=~a&b;
 endmodule
-
+FULLSUBTRACTOR:
+module fullsubtractor(a,b,c,diff,borrow);
+input a,b,c;
+output diff,borrow;
+assign diff=a^b^c;
+assign borrow=~a&b|c&~(a^b);
+endmodule
 ```
 #  RTL realization:
-![image](https://github.com/AshwinAkash24/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/144979248/0bddae2d-7ad9-4394-810e-5196e2da2cce)
+![halfsubtract(1)](https://github.com/AshwinAkash24/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/144979248/c4b05717-c38c-402f-ae56-aab9da4e65d1)
+# ![fullsubtractor(1)](https://github.com/AshwinAkash24/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/144979248/c634113c-b4f9-45a3-8d45-c533891d187e)
 
 # Truth Table:
 ![halfsub(2)](https://github.com/AshwinAkash24/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/144979248/8e10cf55-5b1a-4089-b750-49f6acdad175)
+# ![fullsubtractor(2)](https://github.com/AshwinAkash24/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/144979248/dd4f6c7b-177e-4325-b279-4b661ec0b734)
 
 # Timing diagram :
 ![halfsub](https://github.com/AshwinAkash24/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/144979248/7b10a3ee-8c3b-49a4-88c2-95059ef32a3e)
+# ![fullsubtractor](https://github.com/AshwinAkash24/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/144979248/ea854b7e-45bd-4699-8d4f-06b431c3dd53)
 
 # Result:
 Thus the half subtractor and full subtractor circuits are designed and the truth tables is verified using quartus software.
